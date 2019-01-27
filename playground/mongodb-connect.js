@@ -21,15 +21,15 @@ MongoClient.connect(url + dbName, { useNewUrlParser: true }, function (err, clie
 
     const db = client.db(dbName);
 
-    // db.collection('Todos').insertOne({
-    //     text: 'something to do',
-    //     completed: true
-    // }, (err, result) => {
-    //     if (err) {
-    //         return console.log("error in creating todo", err);
-    //     }
-    //     console.log(JSON.stringify(result.ops, undefined, 2));
-    // });
+    db.collection('Todos').insertOne({
+        text: 'eat lunch',
+        completed: false
+    }, (err, result) => {
+        if (err) {
+            return console.log("error in creating todo", err);
+        }
+        console.log(JSON.stringify(result.ops, undefined, 2));
+    });
 
     // db.collection('Users').insertOne({
     //     name: 'sanketh iyer',
