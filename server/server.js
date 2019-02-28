@@ -1,3 +1,6 @@
+require("./../config/config");
+
+var PORT = process.env.PORT;
 var express = require("express");
 var bodyParser = require("body-parser");
 const { ObjectID } = require('mongodb');
@@ -6,7 +9,6 @@ const _ = require('lodash');
 var { mongoose } = require("./db/mongoose");
 var { Todo } = require("./models/todo");
 var { User } = require("./models/user");
-
 
 var app = express();
 
@@ -93,8 +95,8 @@ app.patch("/todos/:id", (req, res) => {
 
 });
 
-app.listen(3000, () => {
-    console.log("Started on 3000");
+app.listen(PORT, () => {
+    console.log(`Started on ${PORT}`);
 });
 
 module.exports = { app };
